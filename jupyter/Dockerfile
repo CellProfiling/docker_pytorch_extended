@@ -43,7 +43,7 @@ RUN git clone https://github.com/AllenCellModeling/pytorch_learning_tools.git /o
 ## Now set up jupyter
 
 # Set up notebook config
-COPY jupyter_notebook_config.py /root/.jupyter/
+COPY jupyter/jupyter_notebook_config.py /root/.jupyter/
 
 RUN jupyter nbextension enable --py --sys-prefix widgetsnbextension
 
@@ -56,7 +56,7 @@ RUN pip install https://github.com/ipython-contrib/jupyter_contrib_nbextensions/
 # install vim bindings (but not enabled by default)
 RUN jupyter nbextension install https://github.com/lambdalisue/jupyter-vim-binding/archive/master.tar.gz --system && \
     mkdir -p /root/.jupyter/custom
-COPY custom.js /root/.jupyter/custom
+COPY jupyter/custom.js /root/.jupyter/custom
 
 # expose port for ipython (9999)
 EXPOSE 9999
