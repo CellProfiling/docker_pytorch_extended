@@ -12,7 +12,6 @@ FROM rorydm/pytorch:master
 RUN conda install -y --name pytorch-py$PYTHON_VERSION \
     jupyter \
     natsort \
-    pillow \
     matplotlib \
     scikit-learn \
     scikit-image \
@@ -34,6 +33,10 @@ RUN git clone https://github.com/AllenCellModeling/aicsimage.git /opt/aicsimage 
     cd /opt/aicsimage && \
     pip install -r requirements.txt && \
     pip install -e .
+
+# install the simd fork of pillow -- aicsimage installs pillow
+RUN pip uninstall -y pillow
+RUN pip install pillow-simd
 
 # add pytorch learning tools
 RUN git clone https://github.com/AllenCellModeling/pytorch_learning_tools.git /opt/pytorch_learning_tools && \
