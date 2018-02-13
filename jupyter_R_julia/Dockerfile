@@ -14,11 +14,11 @@ RUN apt-get update && \
 RUN julia -e 'Pkg.init()' && \
     julia -e 'Pkg.update()' && \
 #    julia -e 'Pkg.add("HDF5")' && \
-    julia -e 'Pkg.add("Gadfly")' && \
+#    julia -e 'Pkg.add("Gadfly")' && \
 #    julia -e 'Pkg.add("RDatasets")' && \
     julia -e 'Pkg.add("IJulia")' && \
     # precompile packages \
 #    julia -e 'using HDF5' && \
-    julia -e 'using Gadfly' && \
+#    julia -e 'using Gadfly' && \
 #    julia -e 'using RDatasets' && \
     julia -e 'using IJulia'
