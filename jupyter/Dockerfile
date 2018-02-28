@@ -28,6 +28,9 @@ RUN pip install \
     yapf \
     fire
 
+# numpy version 
+RUN pip install numpy -I
+
 # add our aicsimage repo
 RUN git clone https://github.com/AllenCellModeling/aicsimage.git /opt/aicsimage && \
     cd /opt/aicsimage && \
